@@ -3,20 +3,12 @@ package br.edu.ufam.nutrilogapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import br.edu.ufam.nutrilogapp.screens.ScannerScreen
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.remember
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.compose.rememberNavController
+import br.edu.ufam.nutrilogapp.navigation.NutrilogNavHost
 import br.edu.ufam.nutrilogapp.ui.theme.NutrilogAppTheme
-import com.seunomeprojeto.screens.LoginScreen
-import com.seunomeprojeto.screens.SplashScreen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -39,12 +31,10 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
-            ScannerScreen()
-//            LoginScreen (
-//                onLoginSuccess = { /* Implementar navegação para a Home */ },
-//                onNavigateToRegister = { /* Implementar navegação para o Cadastro */ }
-//            )
+            NutrilogAppTheme {
+                val navController = rememberNavController()
+                NutrilogNavHost(navController = navController)
+            }
         }
-
     }
 }

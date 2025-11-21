@@ -71,6 +71,16 @@ dependencies {
     // Para lidar com permissões no Compose
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
 
+    // Vico para gráficos
+    implementation("com.patrykandpatrick.vico:compose:1.13.1")
+    implementation("com.patrykandpatrick.vico:compose-m3:1.13.1")
+    implementation("com.patrykandpatrick.vico:core:1.13.1")
 
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.3")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.3")
+
+    // Navigation Compose
+    implementation("androidx.navigation:navigation-compose:2.8.4")
 
 }

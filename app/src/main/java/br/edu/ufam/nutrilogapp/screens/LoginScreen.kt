@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import br.edu.ufam.nutrilogapp.NutriLogLogo
+import br.edu.ufam.nutrilogapp.components.NutriLogLogo
 import br.edu.ufam.nutrilogapp.common.LoginFormCard
 import br.edu.ufam.nutrilogapp.ui.theme.NutrilogAppTheme
 
