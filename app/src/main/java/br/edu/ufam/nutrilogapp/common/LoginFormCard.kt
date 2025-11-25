@@ -13,7 +13,8 @@ import br.edu.ufam.nutrilogapp.ui.theme.ButtonBlue
 @Composable
 fun LoginFormCard(
     onLoginClick: (String, String) -> Unit,
-    onRegisterClick: () -> Unit
+    onRegisterClick: () -> Unit,
+    isLoading: Boolean = false
 ) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -62,10 +63,18 @@ fun LoginFormCard(
                     .height(50.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = ButtonBlue // Cor de destaque do botão
-                )
+                    containerColor = ButtonBlue
+                ),
+                enabled = !isLoading
             ) {
+                if (isLoading) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(20.dp),
+                        color = MaterialTheme.colorScheme.onPrimary
+                )
+                } else {
                 Text("Entrar", style = MaterialTheme.typography.titleMedium)
+                }
             }
 
             Spacer(modifier = Modifier.height(24.dp))

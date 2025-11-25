@@ -7,6 +7,7 @@ import androidx.compose.runtime.remember
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.rememberNavController
+import br.edu.ufam.nutrilogapp.data.api.ApiClient
 import br.edu.ufam.nutrilogapp.navigation.NutrilogNavHost
 import br.edu.ufam.nutrilogapp.ui.theme.NutrilogAppTheme
 import kotlinx.coroutines.delay
@@ -21,6 +22,8 @@ class MainActivity : ComponentActivity() {
 
         super.onCreate(savedInstanceState)
 
+        ApiClient.initialize(this)
+
         splashScreen.setKeepOnScreenCondition {
             keepSplashOnScreen
         }
@@ -34,7 +37,7 @@ class MainActivity : ComponentActivity() {
             NutrilogAppTheme {
                 val navController = rememberNavController()
                 NutrilogNavHost(navController = navController)
-            }
+        }
         }
     }
 }

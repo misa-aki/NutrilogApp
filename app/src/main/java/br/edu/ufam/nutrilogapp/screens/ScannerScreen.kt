@@ -29,7 +29,7 @@ import br.edu.ufam.nutrilogapp.ui.theme.PrimaryBlue
 @Composable
 fun ScannerScreen(
     onCancelClick: () -> Unit = {},
-    onConfirmClick: () -> Unit = {}
+    onConfirmClick: (String) -> Unit = {}
 ) {
     NutrilogAppTheme {
         // 1. Gerencia o estado da permissão da câmera
@@ -172,8 +172,8 @@ fun ScannerScreen(
                             ) {
                                 IconButton(
                                     onClick = {
-                                        if (!isScanningActive) {
-                                            onConfirmClick()
+                                        if (!isScanningActive && scannedBarcode.isNotEmpty()) {
+                                            onConfirmClick(scannedBarcode)
                                         }
                                     },
                                     modifier = Modifier.fillMaxSize(),

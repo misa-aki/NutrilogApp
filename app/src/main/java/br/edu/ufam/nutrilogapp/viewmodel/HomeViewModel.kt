@@ -43,14 +43,21 @@ class HomeViewModel(
     private fun loadData() {
         viewModelScope.launch {
             try {
-                val user = userService.getCurrentUser()
+                val userResult = userService.getCurrentUser()
                 val nutrition = nutritionService.getDailyNutrition()
 
-                _uiState.value = HomeUiState(
-                    userName = user.name,
-                    dailyNutrition = nutrition,
-                    isLoading = false
-                )
+                userResult.onSuccess { user ->
+                    _uiState.value = HomeUiState(
+                        userName = user.name,
+                        dailyNutrition = nutrition,
+                        isLoading = false
+                    )
+                }.onFailure {
+                    _uiState.value = _uiState.value.copy(
+                        userName = "",
+                        isLoading = false
+                    )
+                }
             } catch (e: Exception) {
                 _uiState.value = _uiState.value.copy(isLoading = false)
             }
