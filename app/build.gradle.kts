@@ -95,4 +95,7 @@ dependencies {
     // Coil para carregar imagens
     implementation("io.coil-kt:coil-compose:2.5.0")
 
+    // Gemini AI
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
+
 }
